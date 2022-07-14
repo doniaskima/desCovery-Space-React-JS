@@ -1,56 +1,88 @@
-.gpt3__features {
+.scene {
+    margin-top: 10px;
+    width: 900px;
+    height: 450px;
+    background: url('../../assets/background.jpg') center no-repeat;
+    background-size: cover;
+    border: 5px solid #191919;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    margin-left: 300px;
+}
+
+@media and screen and (max-width: 700px) {
+    .scene {
+        width: 100px;
+        height: 300px;
+        margin-left: 100px;
+    }
+}
+
+.scene img {
+    position: absolute;
+}
+
+.stars {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    height: 100%;
+    object-fit: cover;
+    animation: stars-rotate 100s linear forwards;
 }
 
-.gpt3__features-heading {
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-    text-align: left;
-    margin-right: 5rem;
+.astronaut {
+    top: 40px;
+    right: 10px;
+    width: 40px;
+    animation: astronaut-move 20s forwards;
 }
 
-.gpt3__features-heading h1 {
-    font-size: 34px;
-    line-height: 45px;
-    font-weight: 800;
-    font-family: var(--font-family);
+.ship {
+    top: 60px;
+    left: 120px;
+    width: 50px;
+    transform: scale(0);
+    animation: ship-move 15s 3s forwards;
 }
 
-.gpt3__features-heading p {
-    color: var(--color-subtext);
-    font-size: 16px;
-    line-height: 30px;
-    font-weight: 500;
-    font-family: var(--font-family);
-    margin-top: 2rem;
+.comet {
+    top: 150px;
+    left: -250px;
+    width: 150px;
+    animation: comet-move 20s 5s forwards;
 }
 
-.gpt3__features-container {
-    flex: 1.5;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
+.moon {
+    bottom: -50px;
+    right: -50px;
+    width: 150px;
 }
 
-@media screen and (max-width: 990px) {
-    .gpt3__features {
-        flex-direction: column;
-    }
-    .gpt3__features-heading {
-        margin: 0 0 2rem 0;
+@keyframes astronaut-move {
+    to {
+        transform: translate(-300px, -150px) rotate(-360deg);
     }
 }
 
-@media screen and (max-width: 550px) {
-    .gpt3__features-heading h1 {
-        font-size: 28px;
-        line-height: 38px;
+@keyframes ship-move {
+    25% {
+        transform: scale(.5) translate(-170px, -25px);
+    }
+    50%,
+    100% {
+        transform: scale(4) translate(250px, 300px);
+    }
+}
+
+@keyframes stars-rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes comet-move {
+    to {
+        transform: translate(500px, -150px);
+        filter: hue-rotate(360deg);
     }
 }
